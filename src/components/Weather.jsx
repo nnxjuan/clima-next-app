@@ -4,7 +4,7 @@ import Image from "next/image";
 const Weather = ({ data }) => {
   console.log(data);
   return (
-    <div className="relative flex flex-col justify-between max-w-[500px] w-full h-[90vh] m-auto p-4 text-gray-300 bg-transparent">
+    <div className="relative flex flex-col justify-between max-w-[500px] w-full h-[90vh] m-auto p-4 text-gray-300 bg-transparent z-[1]">
       {/* top */}
       <div className="relative flex justify-between pt-12">
         <div className="flex flex-col items-center">
@@ -23,16 +23,20 @@ const Weather = ({ data }) => {
         <p className="text-2xl text-center pb-6">Weather in {data.name}</p>
         <div className="flex justify-between text-center">
           <div>
-            <p>{data.main.feels_like.toFixed(0)}&#176;</p>
-            <p>Feels like</p>
+            <p className="font-bold text-2xl">
+              {data.main.feels_like.toFixed(0)}&#176;
+            </p>
+            <p className="text-xl">Feels like</p>
           </div>
           <div>
-            <p>{data.main.humidity}%</p>
-            <p>Humidity</p>
+            <p className="font-bold text-2xl">{data.main.humidity}%</p>
+            <p className="text-xl">Humidity</p>
           </div>
           <div>
-            <p>{data.wind.speed.toFixed(0)} MPH</p>
-            <p>Winds</p>
+            <p className="font-bold text-2xl">
+              {data.wind.speed.toFixed(0)} MPH
+            </p>
+            <p className="text-xl">Winds</p>
           </div>
           <div />
         </div>
